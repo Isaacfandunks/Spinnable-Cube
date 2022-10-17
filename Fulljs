@@ -1,0 +1,117 @@
+var room = document.createElement('div');
+room.style.width = '100%';
+room.style.height = '100%';
+room.style.position = 'absolute';
+room.style.top = '0';
+room.style.left = '0';
+room.style.backgroundColor = '#000';
+room.style.perspective = '1000px';
+document.body.appendChild(room);
+var cube = document.createElement('div');
+cube.style.width = '100px';
+cube.style.height = '100px';
+cube.style.position = 'absolute';
+cube.style.top = '50%';
+cube.style.left = '50%';
+cube.style.marginLeft = '-50px';
+cube.style.marginTop = '-50px';
+cube.style.transformStyle = 'preserve-3d';
+cube.style.transform = 'rotateX(45deg) rotateY(45deg)';
+room.appendChild(cube);
+var face = document.createElement('div');
+face.style.width = '100px';
+face.style.height = '100px';
+face.style.position = 'absolute';
+face.style.backgroundColor = '#f00';
+face.style.top = '0';
+face.style.left = '0';
+face.style.transform = 'translateZ(50px)';
+cube.appendChild(face);
+var face = document.createElement('div');
+face.style.width = '100px';
+face.style.height = '100px';
+face.style.position = 'absolute';
+face.style.backgroundColor = '#0f0';
+face.style.top = '0';
+face.style.left = '0';
+face.style.transform = 'rotateY(90deg) translateZ(50px)';
+cube.appendChild(face);
+var face = document.createElement('div');
+face.style.width = '100px';
+face.style.height = '100px';
+face.style.position = 'absolute';
+face.style.backgroundColor = '#00f';
+face.style.top = '0';
+face.style.left = '0';
+face.style.transform = 'rotateY(180deg) translateZ(50px)';
+cube.appendChild(face);
+var face = document.createElement('div');
+face.style.width = '100px';
+face.style.height = '100px';
+face.style.position = 'absolute';
+face.style.backgroundColor = '#ff0';
+face.style.top = '0';
+face.style.left = '0';
+face.style.transform = 'rotateY(-90deg) translateZ(50px)';
+cube.appendChild(face);
+var face = document.createElement('div');
+face.style.width = '100px';
+face.style.height = '100px';
+face.style.position = 'absolute';
+face.style.backgroundColor = '#f0f';
+face.style.top = '0';
+face.style.left = '0';
+face.style.transform = 'rotateX(90deg) translateZ(50px)';
+cube.appendChild(face);
+var face = document.createElement('div');
+face.style.width = '100px';
+face.style.height = '100px';
+face.style.position = 'absolute';
+face.style.backgroundColor = '#0ff';
+face.style.top = '0';
+face.style.left = '0';
+face.style.transform = 'rotateX(-90deg) translateZ(50px)';
+cube.appendChild(face);
+var cube = document.querySelector('div');
+var x = 0;
+var y = 0;
+var z = 0;
+var rx = 0;
+var ry = 0;
+var rz = 0;
+var speed = 10;
+document.addEventListener('keydown', function(e) {
+  switch (e.keyCode) {
+    case 37: // left
+      ry -= speed;
+      break;
+    case 38: // up
+      rx -= speed;
+      break;
+    case 39: // right
+      ry += speed;
+      break;
+    case 40: // down
+      rx += speed;
+      break;
+    case 87: // w
+      z -= speed;
+      break;
+    case 83: // s
+      z += speed;
+      break;
+    case 65: // a
+      x -= speed;
+      break;
+    case 68: // d
+      x += speed;
+      break;
+    case 81: // q
+      y -= speed;
+      break;
+    case 69: // e
+      y += speed;
+      break;
+  }
+  cube.style.transform = 'translateX(' + x + 'px) translateY(' + y + 'px) translateZ(' + z + 'px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) rotateZ(' + rz + 'deg)';
+});
